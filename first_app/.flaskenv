@@ -1,2 +1,2 @@
-FLASK_APP=other.py
+FLASK_APP=microblog.py
 
