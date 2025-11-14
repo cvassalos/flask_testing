@@ -16,6 +16,11 @@ class User(db.Model):
 
 class Posts(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    body: so.Mapped[str] = so.mapped_column(sa.String(140), index=True)
+    body: so.Mapped[str] = so.mapped_column(sa.String(140))
+    timestamp: so.Mapped[datetime] = so.mapped_column(index=True, default=lambda: datetime.now(timezone.utc))
+    user_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id), index=True)
 
-    timestamp: so.Mapped[datetime] = so.
+    author: so.Mapped[User] = so.relationship(back_populates='posts')
+
+    def __repr__(self):
+        return '<Post {}>'.format(self.body)
