@@ -1,0 +1,20 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Flask runtime files
+instance/
+.flaskenv
+.env
+
+# Databases
+*.sqlite
+*.db
+
+# OS junk
+.DS_Store
