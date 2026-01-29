@@ -1,6 +1,10 @@
 from flask import render_template
 from app import app
 from app.forms import LoginForm
+from flask_login import current_user, login_user
+import sqlalchemy as sa
+from app import db
+from app.models import User
 
 @app.route('/')
 @app.route('/index')
